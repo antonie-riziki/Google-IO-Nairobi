@@ -12,7 +12,7 @@ langchain-community
 langchain-core
 langchain-google-genai
 google-generativeai
-
+google-genai
 python-dotenv
 tqdm
 chromadb
