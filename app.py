@@ -89,7 +89,7 @@ if selected=="Home":
                     with st.chat_message("assistant"):
                         st.markdown(chat_output)
 
-                    st.session_state.messages.append({"role": "assistant", "content": chat_output})
+                st.session_state.messages.append({"role": "assistant", "content": chat_output})
 
             with col2: 
                 with st.expander('', expanded=True):
