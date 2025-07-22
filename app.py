@@ -50,7 +50,7 @@ with st.sidebar:
 
     social_media_icons.render()
 
-
+with st.sidebar:
 	selected = option_menu(
 		menu_title = 'Menu',
 		options = ['Rags to Riches 😅', 'GemVision 🖼'],
