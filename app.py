@@ -22,7 +22,7 @@ st.set_page_config(**page_config)
 with st.sidebar:
 	selected = option_menu(
 		menu_title = 'Menu',
-		options = ['Rags to Riches 😅', 'Image Gen 🖼'],
+		options = ['Rags to Riches 😅', 'GemVision 🖼'],
 		icons = ['speedometer', 'chat-dots', 'currency-bitcoin', 'activity'],
 		menu_icon = 'cast',
 		default_index = 0
@@ -112,8 +112,46 @@ if selected=="Rags to Riches 😅":
 # =================================== End of Rags to Riches Section =======================================#
 
 # =================================== Image Generation Section ============================================ #
-if selected=="Image Gen 🖼":
-    st.write('This is the chatbot')
+if selected=="GemVision 🖼":
+    uploaded_file = st.file_uploader('Upload Your Drip', type=['jpg', 'jpeg', 'png', 'webp', 'bitmap', 'gif']
+
+    if uploaded_file is not None:
+
+        drip_image = Image.open(uploaded_file)
+
+        selected_style = st.selectbox(
+            "Choose your fashion critic:",
+            options=list(roast_personas.keys()),
+            index=0
+        )
+
+
+    image_description_text = get_fashion_roast(drip_image)
+
+    col1, col2 = st.columns(2)
+
+    with col11:
+        st.image(uploaded_file)
+        # generate_speech(roast_text) # Remember to uncomment this line for presentation
+
+    with col12:
+        
+
+        st.markdown("""
+                <style>
+                .scroll-box {
+                    max-height: 450px;
+                    overflow-y: scroll;
+                    padding: 10px;
+                    border: 1px solid #ccc;
+                    border-radius: 8px;
+                    
+                }
+                </style>
+            """, unsafe_allow_html=True)
+
+        # Then display the formatted Markdown content in a scrollable box
+        st.markdown(f'<div class="scroll-box">{image_description_text}</div>', unsafe_allow_html=True)
 
 
 

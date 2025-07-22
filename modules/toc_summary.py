@@ -77,6 +77,8 @@ Context:
 {context}
 
 Question: Generate the Table of Contents using only H1, H2, and H3 levels.
+
+NOTE: Just display the Table of contents, avoid providing any context before the table of contents
 """
 
 
