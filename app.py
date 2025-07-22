@@ -114,14 +114,14 @@ if selected=="Rags to Riches 😅":
 
 # =================================== Image Generation Section ============================================ #
 if selected=="GemVision 🖼":
-    uploaded_file = st.file_uploader('Upload Your Drip', type=['jpg', 'jpeg', 'png', 'webp', 'bitmap', 'gif'])
+    uploaded_image = st.file_uploader('Upload Your Drip', type=['jpg', 'jpeg', 'png', 'webp', 'bitmap', 'gif'])
 
-    if uploaded_file is not None:
+    if uploaded_image is not None:
 
-        user_image = Image.open(uploaded_file)
+        user_image = Image.open(uploaded_image)
     
 
-    col1, col2 = st.columns(2)
+    col3, col4 = st.columns(2)
 
 
     submit_btn = st.button('Describe the Image', use_container_width=True)
@@ -129,11 +129,11 @@ if selected=="GemVision 🖼":
     if submit_btn:
         image_description_text = get_image_description(user_image)
 
-        with col1:
+        with col3:
             st.image(uploaded_file)
             # generate_speech(roast_text) # Remember to uncomment this line for presentation
 
-        with col2:
+        with col4:
             
             st.markdown("""
                     <style>
