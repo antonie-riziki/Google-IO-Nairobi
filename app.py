@@ -3,6 +3,7 @@ import sys
 import tempfile
 import os
 
+from streamlit.components.v1 import html
 from st_social_media_links import SocialMediaIcons
 from streamlit_option_menu import option_menu
 from PIL import Image
