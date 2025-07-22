@@ -45,11 +45,7 @@ st.image('https://linktr.ee/og/image/gdgnairobi.jpg', width=700)
 #     #     with st.spinner("Refreshing chat... Please wait."):
 #     #         st.success("Chat refreshed successfully!")
 
-
-if select=="Home":
-
-
-    uploaded_files = st.file_uploader('Upload a File (PDF/CSV)', accept_multiple_files=True)
+uploaded_files = st.file_uploader('Upload a File', accept_multiple_files=True)
 
     if uploaded_files:
         for uploaded_file in uploaded_files:
