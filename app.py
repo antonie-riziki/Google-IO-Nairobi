@@ -48,6 +48,7 @@ st.image('https://linktr.ee/og/image/gdgnairobi.jpg', width=700)
 #     #         st.success("Chat refreshed successfully!")
 
 
+# ============================================= Rags to Riches ====================================== #
 if selected=="Rags to Riches 😅":
     uploaded_files = st.file_uploader('Upload a File (PDF/CSV)', accept_multiple_files=True)
 
@@ -149,6 +150,7 @@ if selected=="GemVision 🖼":
                 """, unsafe_allow_html=True)
 
             # Then display the formatted Markdown content in a scrollable box
+            st.subheader('Document Summary')
             st.markdown(f'<div class="scroll-box">{image_description_text}</div>', unsafe_allow_html=True)
 
     else:

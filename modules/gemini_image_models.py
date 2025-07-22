@@ -36,7 +36,6 @@ def get_image_description(image):
 
         """
 
-
         
         # Generate content with temperature set to 1.5
         generation_config = genai.types.GenerationConfig(temperature=0.1)
