@@ -1,6 +1,7 @@
 
 from io import BytesIO
 from dotenv import load_dotenv
+import google.generativeai as genai
 from google.genai import types
 
 
