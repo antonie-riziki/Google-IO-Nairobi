@@ -152,7 +152,7 @@ if selected=="GemVision 🖼":
             st.markdown(f'<div class="scroll-box">{image_description_text}</div>', unsafe_allow_html=True)
 
     else:
-        st.warning('Must upload an Image')
+        st.danger('Must upload an Image')
 
 
 
