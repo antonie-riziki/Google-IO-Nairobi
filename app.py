@@ -126,11 +126,11 @@ if selected=="GemVision 🖼":
 
     col1, col2 = st.columns(2)
 
-    with col11:
+    with col1:
         st.image(uploaded_file)
         # generate_speech(roast_text) # Remember to uncomment this line for presentation
 
-    with col12:
+    with col2:
         
 
         st.markdown("""
