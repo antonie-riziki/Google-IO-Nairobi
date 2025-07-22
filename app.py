@@ -22,7 +22,7 @@ st.set_page_config(**page_config)
 with st.sidebar:
 	selected = option_menu(
 		menu_title = 'Menu',
-		options = ['Home', 'Chatbot', 'Document Chat', 'Image Gen'],
+		options = ['Rags to Riches 😅', 'Image Gen 🖼'],
 		icons = ['speedometer', 'chat-dots', 'currency-bitcoin', 'activity'],
 		menu_icon = 'cast',
 		default_index = 0
