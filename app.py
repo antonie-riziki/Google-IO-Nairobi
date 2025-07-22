@@ -109,6 +109,7 @@ if selected=="Rags to Riches 😅":
                         """, unsafe_allow_html=True)
 
                     pdf_summary = generate_toc_summary(temp_path)
+                    st.subheader('Document Summary')
                     st.markdown(f'<div class="scroll-box">{pdf_summary}</div>', unsafe_allow_html=True)
 
 # =================================== End of Rags to Riches Section =======================================#
@@ -150,7 +151,7 @@ if selected=="GemVision 🖼":
                 """, unsafe_allow_html=True)
 
             # Then display the formatted Markdown content in a scrollable box
-            st.subheader('Document Summary')
+            
             st.markdown(f'<div class="scroll-box">{image_description_text}</div>', unsafe_allow_html=True)
 
     else:
