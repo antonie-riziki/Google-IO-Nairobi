@@ -12,6 +12,7 @@ sys.path.insert(1, './modules')
 
 from upload_file_rag import get_qa_chain, query_system
 from toc_summary import generate_toc_summary
+from gemini_image_models import get_image_description
 
 
 
@@ -126,7 +127,7 @@ if selected=="GemVision 🖼":
         )
 
 
-    image_description_text = get_fashion_roast(drip_image)
+    image_description_text = get_image_description(drip_image)
 
     col1, col2 = st.columns(2)
 

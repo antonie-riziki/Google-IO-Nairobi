@@ -1,21 +1,27 @@
-def get_fashion_roast(image):
+def get_image_description(image):
     try:
         model = genai.GenerativeModel('gemini-2.0-flash')
         
         
         prompt = f"""
+        You are a highly observant AI with strong visual reasoning capabilities.
 
-            You're here to roast this outfit, Nairobi-style. Stay in character and adjust your tone to match the roast level.
+        Given the image provided, describe in rich detail what you see. Focus on:
+        - The objects and people in the image
+        - The setting and environment
+        - Activities or actions taking place
+        - Emotions, mood, or tone of the scene
+        - Any notable details or unique features
+        - Style, aesthetics, or visual themes (if applicable)
 
-            Guidelines:
-            - Be funny, real, hurtful and extremly petty 😏
-            - Drop some local slang or vibes (e.g., "hii drip imekataa", "wueh", "uko sure?", "bro achana na gikomba market", "unaeza jaribu LC Waikiki", "mtumba sio luku")
-            - Make at least one outrageous fashion prediction or trend 😂
-            - Use emojis for spice 🌶️
+        Be factual but vivid, and avoid guessing beyond what is visually evident.
 
-            Now, look at this fit and drop the verdict. Don’t hold back — unless it’s Light Roast ☕.
-            
-            """
+        Image: {image}
+
+        Task: Generate a comprehensive and accurate description of the image.
+
+        """
+
 
         
         # Generate content with temperature set to 1.5
