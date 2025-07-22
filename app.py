@@ -48,7 +48,7 @@ st.image('https://linktr.ee/og/image/gdgnairobi.jpg', width=700)
 
 
 if selected=="Home":
-    uploaded_files = st.file_uploader('Upload a File', accept_multiple_files=True)
+    uploaded_files = st.file_uploader('Upload a File (PDF/CSV)', accept_multiple_files=True)
 
     if uploaded_files:
         for uploaded_file in uploaded_files:
@@ -60,7 +60,7 @@ if selected=="Home":
 
             col1, col2 = st.columns(2)
 
-            
+
             # Initialize QA chain from saved file
             qa_chain = get_qa_chain(temp_path)
 
@@ -96,7 +96,7 @@ if selected=="Home":
                 with st.expander('', expanded=True):
 
                     pdf_summary = generate_toc_summary(temp_path)
-                    st.write(pdf_summary)
+                    st.markdown(f'<div class="scroll-box">{pdf_summary}</div>', unsafe_allow_html=True)
 
 
 if selected=="Chatbot":

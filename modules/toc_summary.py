@@ -65,15 +65,21 @@ def toc_create_vector_store(docs: List, embeddings, chunk_size=10000, chunk_over
 
 # Prompt template
 PROMPT_TEMPLATE = """
-You are a professional media analyst at a leading news organization. From the document excerpt below, generate a professional Table of Contents.
+You are a professional document reader and analyst. From the document excerpt below, generate a professional Table of Contents.
 
-The Table of Contents should include key topics, themes, or events, and be structured in a logical numbered list.
+Only include headings up to three levels deep:  
+- H1: Main topics or sections  
+- H2: Subtopics within each main section  
+- H3: Important details or events under each subtopic  
+
+Exclude any headings beyond H3 (e.g., H4, H5, H6). Structure the Table of Contents in a clear, hierarchical, and numbered format (e.g., 1, 1.1, 1.1.1).
 
 Context:
 {context}
 
-Question: Generate the Table of Contents.
+Question: Generate the Table of Contents using only H1, H2, and H3 levels.
 """
+
 
 # Core function to generate Table of Contents
 def generate_toc_summary(source_file_path: str):
