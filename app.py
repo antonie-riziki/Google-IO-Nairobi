@@ -93,7 +93,7 @@ if selected=="Home":
                     st.session_state.messages.append({"role": "assistant", "content": chat_output})
 
             with col2: 
-                with st.expander('', expanded=True, border=False):
+                with st.expander('', expanded=True):
                     st.markdown("""
                             <style>
                             .scroll-box {
