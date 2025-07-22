@@ -123,33 +123,33 @@ if selected=="GemVision 🖼":
 
     col1, col2 = st.columns(2)
 
-    
+
     submit_btn = st.button('Describe the Image', use_container_width=True)
 
     if submit_btn:
         image_description_text = get_image_description(user_image)
 
-    with col1:
-        st.image(uploaded_file)
-        # generate_speech(roast_text) # Remember to uncomment this line for presentation
+        with col1:
+            st.image(uploaded_file)
+            # generate_speech(roast_text) # Remember to uncomment this line for presentation
 
-    with col2:
-        
-        st.markdown("""
-                <style>
-                .scroll-box {
-                    max-height: 450px;
-                    overflow-y: scroll;
-                    padding: 10px;
-                    border: 1px solid #ccc;
-                    border-radius: 8px;
-                    
-                }
-                </style>
-            """, unsafe_allow_html=True)
+        with col2:
+            
+            st.markdown("""
+                    <style>
+                    .scroll-box {
+                        max-height: 450px;
+                        overflow-y: scroll;
+                        padding: 10px;
+                        border: 1px solid #ccc;
+                        border-radius: 8px;
+                        
+                    }
+                    </style>
+                """, unsafe_allow_html=True)
 
-        # Then display the formatted Markdown content in a scrollable box
-        st.markdown(f'<div class="scroll-box">{image_description_text}</div>', unsafe_allow_html=True)
+            # Then display the formatted Markdown content in a scrollable box
+            st.markdown(f'<div class="scroll-box">{image_description_text}</div>', unsafe_allow_html=True)
 
 
 

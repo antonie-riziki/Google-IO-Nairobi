@@ -1,3 +1,14 @@
+
+from io import BytesIO
+from dotenv import load_dotenv
+from google.genai import types
+
+
+load_dotenv()
+
+genai.configure(api_key = os.getenv("GOOGLE_API_KEY"))
+
+
 def get_image_description(image):
     try:
         model = genai.GenerativeModel('gemini-2.0-flash')
