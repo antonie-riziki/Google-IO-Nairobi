@@ -58,10 +58,11 @@ if selected=="Home":
                 temp_file.write(uploaded_file.getbuffer())
                 temp_path = temp_file.name
 
+            col1, col2 = st.columns(2)
+
+            
             # Initialize QA chain from saved file
             qa_chain = get_qa_chain(temp_path)
-
-            col1, col2 = st.columns(2)
 
             with col1:
 
@@ -89,7 +90,7 @@ if selected=="Home":
                     with st.chat_message("assistant"):
                         st.markdown(chat_output)
 
-                st.session_state.messages.append({"role": "assistant", "content": chat_output})
+                    st.session_state.messages.append({"role": "assistant", "content": chat_output})
 
             with col2: 
                 with st.expander('', expanded=True):
