@@ -70,8 +70,6 @@ You are a professional document reader and analyst. From the document excerpt be
 Only include headings up to three levels deep:  
 - H1: Main topics or sections  
 - H2: Subtopics within each main section  
- 
-NOTE: Each level should be displayed on a new line 
 
 Exclude any headings beyond H2 (e.g., H3 H4, H5, H6). Structure the Table of Contents in a clear, hierarchical, and numbered format (e.g., 1, 1.1, 1.1.1).
 
