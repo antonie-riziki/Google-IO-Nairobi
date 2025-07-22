@@ -3,7 +3,7 @@ import sys
 import tempfile
 import os
 
-
+from st_social_media_links import SocialMediaIcons
 from streamlit_option_menu import option_menu
 from PIL import Image
 
@@ -19,8 +19,38 @@ from gemini_image_models import get_image_description
 page_config = {"page_title":"GDG IO Nairobi 2025", "page_icon":":desktop computer:", "layout":"centered"}
 st.set_page_config(**page_config)
 
-
 with st.sidebar:
+    button = """
+        <script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="echominds" data-color="#FFDD00" data-emoji=""  data-font="Cookie" data-text="Buy me a coffee" data-outline-color="#000000" data-font-color="#000000" data-coffee-color="#ffffff" ></script>
+        """
+
+    html(button, height=70, width=220)
+    st.markdown(
+        """
+        <style>
+            iframe[width="220"] {
+                position: fixed;
+                bottom: 60px;
+                right: 40px;
+            }
+        </style>
+        """,
+        unsafe_allow_html=True,
+    )
+
+
+    social_media_links = [
+        "https://www.x.com/am_tonie",
+        "https://www.youtube.com/@echobytes-ke",
+        "https://www.instagram.com/antonie_generall",
+        "https://www.github.com/antonie-riziki",
+    ]
+
+    social_media_icons = SocialMediaIcons(social_media_links)
+
+    social_media_icons.render()
+
+
 	selected = option_menu(
 		menu_title = 'Menu',
 		options = ['Rags to Riches 😅', 'GemVision 🖼'],

@@ -5,7 +5,7 @@ streamlit_option_menu
 streamlit_chat
 openai
 requests
-
+st-social-media-links
 langchain
 langchain-community
 langchain-core
