@@ -2,7 +2,6 @@ import os
 import sys
 import glob
 import getpass
-import pyttsx3
 import warnings
 import tempfile
 import streamlit as st 
