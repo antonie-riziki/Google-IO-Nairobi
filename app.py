@@ -100,8 +100,7 @@ if selected=="Home":
                                 max-height: 650px;
                                 overflow-y: scroll;
                                 padding: 10px;
-                                border: 1px solid #ccc;
-                                border-radius: 8px;
+                                
                                 
                             }
                             </style>
