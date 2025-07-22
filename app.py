@@ -22,7 +22,7 @@ st.set_page_config(**page_config)
 with st.sidebar:
 	selected = option_menu(
 		menu_title = 'Menu',
-		options = ['Home', 'Chatbot', 'Document Chat', 'Image Gen'],
+		options = ['Rags to Riches 😅', 'Image Gen 🖼'],
 		icons = ['speedometer', 'chat-dots', 'currency-bitcoin', 'activity'],
 		menu_icon = 'cast',
 		default_index = 0
@@ -47,7 +47,7 @@ st.image('https://linktr.ee/og/image/gdgnairobi.jpg', width=700)
 #     #         st.success("Chat refreshed successfully!")
 
 
-if selected=="Home":
+if selected=="Rags to Riches 😅":
     uploaded_files = st.file_uploader('Upload a File (PDF/CSV)', accept_multiple_files=True)
 
     if uploaded_files:
@@ -109,8 +109,10 @@ if selected=="Home":
                     pdf_summary = generate_toc_summary(temp_path)
                     st.markdown(f'<div class="scroll-box">{pdf_summary}</div>', unsafe_allow_html=True)
 
+# =================================== End of Rags to Riches Section =======================================#
 
-if selected=="Chatbot":
+# =================================== Image Generation Section ============================================ #
+if selected=="Image Gen 🖼":
     st.write('This is the chatbot')
 
 
