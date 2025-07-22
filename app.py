@@ -93,22 +93,22 @@ if selected=="Home":
                     st.session_state.messages.append({"role": "assistant", "content": chat_output})
 
             with col2: 
-                # with st.expander('', expanded=True):
-                st.markdown("""
-                        <style>
-                        .scroll-box {
-                            max-height: 650px;
-                            overflow-y: scroll;
-                            padding: 10px;
-                            border: 1px solid #ccc;
-                            border-radius: 8px;
-                            
-                        }
-                        </style>
-                    """, unsafe_allow_html=True)
+                with st.expander('', expanded=True, border=False):
+                    st.markdown("""
+                            <style>
+                            .scroll-box {
+                                max-height: 650px;
+                                overflow-y: scroll;
+                                padding: 10px;
+                                border: 1px solid #ccc;
+                                border-radius: 8px;
+                                
+                            }
+                            </style>
+                        """, unsafe_allow_html=True)
 
-                pdf_summary = generate_toc_summary(temp_path)
-                st.markdown(f'<div class="scroll-box">{pdf_summary}</div>', unsafe_allow_html=True)
+                    pdf_summary = generate_toc_summary(temp_path)
+                    st.markdown(f'<div class="scroll-box">{pdf_summary}</div>', unsafe_allow_html=True)
 
 
 if selected=="Chatbot":
