@@ -118,16 +118,10 @@ if selected=="GemVision 🖼":
 
     if uploaded_file is not None:
 
-        drip_image = Image.open(uploaded_file)
-
-        selected_style = st.selectbox(
-            "Choose your fashion critic:",
-            options=list(roast_personas.keys()),
-            index=0
-        )
+        user_image = Image.open(uploaded_file)
 
 
-    image_description_text = get_image_description(drip_image)
+    image_description_text = get_image_description(user_image)
 
     col1, col2 = st.columns(2)
 
