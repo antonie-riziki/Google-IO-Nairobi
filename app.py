@@ -20,6 +20,17 @@ from gemini_image_models import get_image_description
 page_config = {"page_title":"GDG IO Nairobi 2025", "page_icon":":desktop computer:", "layout":"centered"}
 st.set_page_config(**page_config)
 
+
+with st.sidebar:
+	selected = option_menu(
+		menu_title = 'Menu',
+		options = ['Rags to Riches 😅', 'GemVision 🖼'],
+		icons = ['speedometer', 'chat-dots', 'currency-bitcoin', 'activity'],
+		menu_icon = 'cast',
+		default_index = 0
+		)
+
+        
 with st.sidebar:
     button = """
         <script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="echominds" data-color="#FFDD00" data-emoji=""  data-font="Cookie" data-text="Buy me a coffee" data-outline-color="#000000" data-font-color="#000000" data-coffee-color="#ffffff" ></script>
@@ -51,14 +62,7 @@ with st.sidebar:
 
     social_media_icons.render()
 
-with st.sidebar:
-	selected = option_menu(
-		menu_title = 'Menu',
-		options = ['Rags to Riches 😅', 'GemVision 🖼'],
-		icons = ['speedometer', 'chat-dots', 'currency-bitcoin', 'activity'],
-		menu_icon = 'cast',
-		default_index = 0
-		)
+
 
 
 st.image('https://linktr.ee/og/image/gdgnairobi.jpg', width=700)
