@@ -47,42 +47,42 @@ st.image('https://linktr.ee/og/image/gdgnairobi.jpg', width=700)
 
 uploaded_files = st.file_uploader('Upload a File', accept_multiple_files=True)
 
-    if uploaded_files:
-        for uploaded_file in uploaded_files:
+if uploaded_files:
+    for uploaded_file in uploaded_files:
 
-            suffix = os.path.splitext(uploaded_file.name)[1]
-            with tempfile.NamedTemporaryFile(delete=False, suffix=suffix) as temp_file:
-                temp_file.write(uploaded_file.getbuffer())
-                temp_path = temp_file.name
+        suffix = os.path.splitext(uploaded_file.name)[1]
+        with tempfile.NamedTemporaryFile(delete=False, suffix=suffix) as temp_file:
+            temp_file.write(uploaded_file.getbuffer())
+            temp_path = temp_file.name
 
-            # Initialize QA chain from saved file
-            qa_chain = get_qa_chain(temp_path)
+        # Initialize QA chain from saved file
+        qa_chain = get_qa_chain(temp_path)
 
-            # Initialize session state for chat history
-            if "messages" not in st.session_state:
-                st.session_state.messages = [{"role": "assistant", "content": "How may I help you?"}]
+        # Initialize session state for chat history
+        if "messages" not in st.session_state:
+            st.session_state.messages = [{"role": "assistant", "content": "How may I help you?"}]
 
-            # Display chat history
-            for message in st.session_state.messages:
+        # Display chat history
+        for message in st.session_state.messages:
 
-                with st.chat_message(message["role"]):
-                    st.markdown(message["content"])
+            with st.chat_message(message["role"]):
+                st.markdown(message["content"])
 
 
-            if prompt := st.chat_input("How may I help?", key='RAG chat'):
-                # Append user message
-                st.session_state.messages.append({"role": "user", "content": prompt})
-                with st.chat_message("user"):
-                    st.markdown(prompt)
+        if prompt := st.chat_input("How may I help?", key='RAG chat'):
+            # Append user message
+            st.session_state.messages.append({"role": "user", "content": prompt})
+            with st.chat_message("user"):
+                st.markdown(prompt)
 
-                # Generate AI response
-                chat_output = query_system(prompt, qa_chain)
-                
-                # Append AI response
-                with st.chat_message("assistant"):
-                    st.markdown(chat_output)
+            # Generate AI response
+            chat_output = query_system(prompt, qa_chain)
+            
+            # Append AI response
+            with st.chat_message("assistant"):
+                st.markdown(chat_output)
 
-                st.session_state.messages.append({"role": "assistant", "content": chat_output})
+            st.session_state.messages.append({"role": "assistant", "content": chat_output})
 
 
 
