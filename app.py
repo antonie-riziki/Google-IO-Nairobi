@@ -120,12 +120,14 @@ if selected=="GemVision 🖼":
 
         user_image = Image.open(uploaded_file)
     
+
+    col1, col2 = st.columns(2)
+
+    
     submit_btn = st.button('Describe the Image', use_container_width=True)
 
     if submit_btn:
         image_description_text = get_image_description(user_image)
-
-    col1, col2 = st.columns(2)
 
     with col1:
         st.image(uploaded_file)
@@ -133,7 +135,6 @@ if selected=="GemVision 🖼":
 
     with col2:
         
-
         st.markdown("""
                 <style>
                 .scroll-box {
