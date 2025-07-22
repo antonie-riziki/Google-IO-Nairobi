@@ -25,7 +25,6 @@ with st.sidebar:
 	selected = option_menu(
 		menu_title = 'Menu',
 		options = ['Rags to Riches 😅', 'GemVision 🖼'],
-		icons = [],
 		menu_icon = 'cast',
 		default_index = 0
 		)
