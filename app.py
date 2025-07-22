@@ -5,7 +5,7 @@ import os
 
 
 from streamlit_option_menu import option_menu
-
+from PIL import Image
 
 
 sys.path.insert(1, './modules')
