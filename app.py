@@ -113,7 +113,7 @@ if selected=="Rags to Riches 😅":
 
 # =================================== Image Generation Section ============================================ #
 if selected=="GemVision 🖼":
-    uploaded_file = st.file_uploader('Upload Your Drip', type=['jpg', 'jpeg', 'png', 'webp', 'bitmap', 'gif']
+    uploaded_file = st.file_uploader('Upload Your Drip', type=['jpg', 'jpeg', 'png', 'webp', 'bitmap', 'gif'])
 
     if uploaded_file is not None:
 
