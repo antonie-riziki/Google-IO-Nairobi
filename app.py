@@ -94,18 +94,18 @@ if selected=="Home":
 
             with col2: 
                 # with st.expander('', expanded=True):
-                st.markdown("""
-                        <style>
-                        .scroll-box {
-                            max-height: 450px;
-                            overflow-y: scroll;
-                            padding: 10px;
-                            border: 1px solid #ccc;
-                            border-radius: 8px;
+                # st.markdown("""
+                #         <style>
+                #         .scroll-box {
+                #             max-height: 650px;
+                #             overflow-y: scroll;
+                #             padding: 10px;
+                #             border: 1px solid #ccc;
+                #             border-radius: 8px;
                             
-                        }
-                        </style>
-                    """, unsafe_allow_html=True)
+                #         }
+                #         </style>
+                #     """, unsafe_allow_html=True)
 
                 pdf_summary = generate_toc_summary(temp_path)
                 st.markdown(f'<div class="scroll-box">{pdf_summary}</div>', unsafe_allow_html=True)
