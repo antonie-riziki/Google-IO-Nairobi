@@ -126,30 +126,33 @@ if selected=="GemVision 🖼":
 
     # submit_btn = st.button('Describe the Image', use_container_width=True, type='primary')
 
-    # if submit_btn:
-    image_description_text = get_image_description(user_image)
+    if uploaded_image is not None:
+        image_description_text = get_image_description(user_image)
 
-    with col3:
-        st.image(uploaded_image)
-        # generate_speech(roast_text) # Remember to uncomment this line for presentation
+        with col3:
+            st.image(uploaded_image)
+            # generate_speech(roast_text) # Remember to uncomment this line for presentation
 
-    with col4:
-        
-        st.markdown("""
-                <style>
-                .scroll-box {
-                    max-height: 450px;
-                    overflow-y: scroll;
-                    padding: 10px;
-                    border: 1px solid #ccc;
-                    border-radius: 8px;
-                    
-                }
-                </style>
-            """, unsafe_allow_html=True)
+        with col4:
+            
+            st.markdown("""
+                    <style>
+                    .scroll-box {
+                        max-height: 450px;
+                        overflow-y: scroll;
+                        padding: 10px;
+                        border: 1px solid #ccc;
+                        border-radius: 8px;
+                        
+                    }
+                    </style>
+                """, unsafe_allow_html=True)
 
-        # Then display the formatted Markdown content in a scrollable box
-        st.markdown(f'<div class="scroll-box">{image_description_text}</div>', unsafe_allow_html=True)
+            # Then display the formatted Markdown content in a scrollable box
+            st.markdown(f'<div class="scroll-box">{image_description_text}</div>', unsafe_allow_html=True)
+
+    else:
+        st.warning('Must upload an Image')
 
 
 
