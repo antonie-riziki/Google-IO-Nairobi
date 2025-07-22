@@ -119,9 +119,10 @@ if selected=="GemVision 🖼":
     if uploaded_file is not None:
 
         user_image = Image.open(uploaded_file)
+        submit_btn = st.button('Describe the Image', use_container_width=True)
 
-
-    image_description_text = get_image_description(user_image)
+    if submit_btn:
+        image_description_text = get_image_description(user_image)
 
     col1, col2 = st.columns(2)
 
