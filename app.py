@@ -11,6 +11,7 @@ from streamlit_option_menu import option_menu
 sys.path.insert(1, './modules')
 
 from upload_file_rag import get_qa_chain, query_system
+from toc_summary import generate_toc_summary
 
 
 
@@ -45,44 +46,60 @@ st.image('https://linktr.ee/og/image/gdgnairobi.jpg', width=700)
 #     #     with st.spinner("Refreshing chat... Please wait."):
 #     #         st.success("Chat refreshed successfully!")
 
-uploaded_files = st.file_uploader('Upload a File', accept_multiple_files=True)
 
-if uploaded_files:
-    for uploaded_file in uploaded_files:
+if selected=="Home":
+    uploaded_files = st.file_uploader('Upload a File', accept_multiple_files=True)
 
-        suffix = os.path.splitext(uploaded_file.name)[1]
-        with tempfile.NamedTemporaryFile(delete=False, suffix=suffix) as temp_file:
-            temp_file.write(uploaded_file.getbuffer())
-            temp_path = temp_file.name
+    if uploaded_files:
+        for uploaded_file in uploaded_files:
 
-        # Initialize QA chain from saved file
-        qa_chain = get_qa_chain(temp_path)
+            suffix = os.path.splitext(uploaded_file.name)[1]
+            with tempfile.NamedTemporaryFile(delete=False, suffix=suffix) as temp_file:
+                temp_file.write(uploaded_file.getbuffer())
+                temp_path = temp_file.name
 
-        # Initialize session state for chat history
-        if "messages" not in st.session_state:
-            st.session_state.messages = [{"role": "assistant", "content": "How may I help you?"}]
+            # Initialize QA chain from saved file
+            qa_chain = get_qa_chain(temp_path)
 
-        # Display chat history
-        for message in st.session_state.messages:
+            col1, col2 = st.columns(2)
 
-            with st.chat_message(message["role"]):
-                st.markdown(message["content"])
+            with col1:
+
+                # Initialize session state for chat history
+                if "messages" not in st.session_state:
+                    st.session_state.messages = [{"role": "assistant", "content": "How may I help you?"}]
+
+                # Display chat history
+                for message in st.session_state.messages:
+
+                    with st.chat_message(message["role"]):
+                        st.markdown(message["content"])
 
 
-        if prompt := st.chat_input("How may I help?", key='RAG chat'):
-            # Append user message
-            st.session_state.messages.append({"role": "user", "content": prompt})
-            with st.chat_message("user"):
-                st.markdown(prompt)
+                if prompt := st.chat_input("How may I help?", key='RAG chat'):
+                    # Append user message
+                    st.session_state.messages.append({"role": "user", "content": prompt})
+                    with st.chat_message("user"):
+                        st.markdown(prompt)
 
-            # Generate AI response
-            chat_output = query_system(prompt, qa_chain)
-            
-            # Append AI response
-            with st.chat_message("assistant"):
-                st.markdown(chat_output)
+                    # Generate AI response
+                    chat_output = query_system(prompt, qa_chain)
+                    
+                    # Append AI response
+                    with st.chat_message("assistant"):
+                        st.markdown(chat_output)
 
-            st.session_state.messages.append({"role": "assistant", "content": chat_output})
+                    st.session_state.messages.append({"role": "assistant", "content": chat_output})
+
+            with col2: 
+                with st.expander('', expanded=True):
+
+                    pdf_summary = generate_toc_summary(temp_path)
+                    st.write(pdf_summary)
+
+
+if selected=="Chatbot":
+    st.write('This is the chatbot')
 
 
 
