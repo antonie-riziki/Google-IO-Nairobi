@@ -124,13 +124,13 @@ if selected=="GemVision 🖼":
     col3, col4 = st.columns(2)
 
 
-    submit_btn = st.button('Describe the Image', use_container_width=True)
+    submit_btn = st.button('Describe the Image', use_container_width=True, type='primary')
 
     if submit_btn:
         image_description_text = get_image_description(user_image)
 
         with col3:
-            st.image(uploaded_file)
+            st.image(uploaded_image)
             # generate_speech(roast_text) # Remember to uncomment this line for presentation
 
         with col4:
