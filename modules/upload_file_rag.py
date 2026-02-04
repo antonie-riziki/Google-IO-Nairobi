@@ -9,13 +9,14 @@ from langchain_community.document_loaders import (
     PyPDFLoader, CSVLoader
 )
 from langchain_core.prompts import PromptTemplate
-from langchain.chains import RetrievalQA
+from langchain_classic.chains import RetrievalQA
 from langchain_google_genai import ChatGoogleGenerativeAI, GoogleGenerativeAIEmbeddings
-from langchain.text_splitter import RecursiveCharacterTextSplitter
+from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_community.vectorstores import Chroma
 from langchain_community.vectorstores import FAISS
-from langchain.docstore.document import Document
-warnings.filterwarnings("ignore")
+from langchain_core.documents import Document
+
+warnings.filterwarnings("ignore", category=UserWarning)
 
 # sys.path.insert(1, './src')
 # print(sys.path.insert(1, '../src/'))
