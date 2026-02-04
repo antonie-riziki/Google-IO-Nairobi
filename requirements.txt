@@ -6,9 +6,11 @@ streamlit_chat
 openai
 requests
 st-social-media-links
-langchain==0.0.350
-langchain-community==0.0.17
-langchain-core==0.1.4
+langchain-classic
+langchain-text-splitters
+langchain
+langchain-community
+langchain-core
 langchain-google-genai
 google-generativeai
 google-genai
